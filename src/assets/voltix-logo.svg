@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0e2a24"/>
+      <stop offset="100%" stop-color="#090d12"/>
+    </radialGradient>
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F5C4"/>
+      <stop offset="100%" stop-color="#00c9a0"/>
+    </linearGradient>
+    <linearGradient id="boltGradInner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#00F5C4" stop-opacity="0.6"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="hexClip">
+      <polygon points="200,30 355,115 355,285 200,370 45,285 45,115"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bgGlow)" rx="32"/>
+
+  <!-- Outer hex ring -->
+  <polygon points="200,28 357,114 357,286 200,372 43,286 43,114"
+    fill="none" stroke="#00F5C4" stroke-width="1.5" stroke-opacity="0.25"/>
+
+  <!-- Middle hex ring -->
+  <polygon points="200,52 335,126 335,274 200,348 65,274 65,126"
+    fill="none" stroke="#00F5C4" stroke-width="1" stroke-opacity="0.12"/>
+
+  <!-- Circuit dots on hex corners -->
+  <circle cx="200" cy="28" r="3.5" fill="#00F5C4" opacity="0.6"/>
+  <circle cx="357" cy="114" r="3.5" fill="#00F5C4" opacity="0.6"/>
+  <circle cx="357" cy="286" r="3.5" fill="#00F5C4" opacity="0.6"/>
+  <circle cx="200" cy="372" r="3.5" fill="#00F5C4" opacity="0.6"/>
+  <circle cx="43" cy="286" r="3.5" fill="#00F5C4" opacity="0.6"/>
+  <circle cx="43" cy="114" r="3.5" fill="#00F5C4" opacity="0.6"/>
+
+  <!-- Subtle circuit lines from corners -->
+  <line x1="200" y1="28" x2="200" y2="52" stroke="#00F5C4" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="357" y1="114" x2="335" y2="126" stroke="#00F5C4" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="357" y1="286" x2="335" y2="274" stroke="#00F5C4" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="200" y1="372" x2="200" y2="348" stroke="#00F5C4" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="43" y1="286" x2="65" y2="274" stroke="#00F5C4" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="43" y1="114" x2="65" y2="126" stroke="#00F5C4" stroke-width="1" stroke-opacity="0.3"/>
+
+  <!-- Glow aura behind bolt -->
+  <polygon points="222,95 175,205 208,205 178,305 245,175 210,175 235,95"
+    fill="#00F5C4" opacity="0.08" filter="url(#glow)"/>
+
+  <!-- Lightning bolt shadow/glow layer -->
+  <polygon points="222,95 175,205 208,205 178,305 245,175 210,175 235,95"
+    fill="#00F5C4" opacity="0.3" filter="url(#softGlow)"/>
+
+  <!-- Main lightning bolt -->
+  <polygon points="222,95 175,205 208,205 178,305 245,175 210,175 235,95"
+    fill="url(#boltGrad)" filter="url(#glow)"/>
+
+  <!-- Inner highlight on bolt -->
+  <polygon points="222,95 198,160 212,160 235,95"
+    fill="url(#boltGradInner)" opacity="0.5"/>
+
+  <!-- Small circuit nodes -->
+  <circle cx="222" cy="95" r="4" fill="#00F5C4" opacity="0.9"/>
+  <circle cx="178" cy="305" r="4" fill="#00F5C4" opacity="0.9"/>
+
+  <!-- Signal wave arcs left -->
+  <path d="M 148 148 Q 120 200 148 252" fill="none" stroke="#00F5C4" stroke-width="2" stroke-opacity="0.5" stroke-linecap="round"/>
+  <path d="M 128 128 Q 88 200 128 272" fill="none" stroke="#00F5C4" stroke-width="1.5" stroke-opacity="0.25" stroke-linecap="round"/>
+
+  <!-- Signal wave arcs right -->
+  <path d="M 252 148 Q 280 200 252 252" fill="none" stroke="#00F5C4" stroke-width="2" stroke-opacity="0.5" stroke-linecap="round"/>
+  <path d="M 272 128 Q 312 200 272 272" fill="none" stroke="#00F5C4" stroke-width="1.5" stroke-opacity="0.25" stroke-linecap="round"/>
+
+  <!-- VOLTIX text -->
+  <text x="200" y="358"
+    font-family="'Courier New', 'Lucida Console', monospace"
+    font-size="28"
+    font-weight="700"
+    letter-spacing="10"
+    text-anchor="middle"
+    fill="#00F5C4"
+    opacity="0.0">VOLTIX</text>
+
+</svg>

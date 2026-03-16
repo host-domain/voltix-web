@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="520" height="120">
+  <defs>
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F5C4"/>
+      <stop offset="100%" stop-color="#00c9a0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F5C4"/>
+      <stop offset="100%" stop-color="#7fffe4"/>
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="15%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#0e2a24"/>
+      <stop offset="100%" stop-color="#090d12"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="520" height="120" fill="#090d12" rx="16"/>
+  <rect width="520" height="120" fill="url(#bgGlow)" rx="16"/>
+
+  <!-- Hex container for icon -->
+  <polygon points="60,10 103,35 103,85 60,110 17,85 17,35"
+    fill="none" stroke="#00F5C4" stroke-width="1.2" stroke-opacity="0.3"/>
+
+  <!-- Tiny circuit dots -->
+  <circle cx="60" cy="10" r="2" fill="#00F5C4" opacity="0.5"/>
+  <circle cx="103" cy="35" r="2" fill="#00F5C4" opacity="0.5"/>
+  <circle cx="103" cy="85" r="2" fill="#00F5C4" opacity="0.5"/>
+  <circle cx="60" cy="110" r="2" fill="#00F5C4" opacity="0.5"/>
+  <circle cx="17" cy="85" r="2" fill="#00F5C4" opacity="0.5"/>
+  <circle cx="17" cy="35" r="2" fill="#00F5C4" opacity="0.5"/>
+
+  <!-- Bolt glow -->
+  <polygon points="65,22 43,62 57,62 42,98 76,52 61,52 70,22"
+    fill="#00F5C4" opacity="0.2" filter="url(#glow)"/>
+
+  <!-- Main bolt -->
+  <polygon points="65,22 43,62 57,62 42,98 76,52 61,52 70,22"
+    fill="url(#boltGrad)" filter="url(#glow)"/>
+
+  <!-- Signal arcs -->
+  <path d="M 88 40 Q 98 60 88 80" fill="none" stroke="#00F5C4" stroke-width="1.8" stroke-opacity="0.5" stroke-linecap="round"/>
+  <path d="M 96 32 Q 110 60 96 88" fill="none" stroke="#00F5C4" stroke-width="1.2" stroke-opacity="0.25" stroke-linecap="round"/>
+
+  <!-- VOLTIX text -->
+  <text x="148" y="76"
+    font-family="'Courier New', 'Lucida Console', monospace"
+    font-size="46"
+    font-weight="700"
+    letter-spacing="6"
+    fill="url(#textGrad)"
+    filter="url(#glow)">VOLTIX</text>
+
+  <!-- Tagline -->
+  <text x="150" y="96"
+    font-family="'Courier New', monospace"
+    font-size="11"
+    letter-spacing="4"
+    fill="#00F5C4"
+    opacity="0.45">IOT SENSOR DASHBOARD</text>
+
+  <!-- Separator line -->
+  <line x1="140" y1="30" x2="140" y2="100" stroke="#00F5C4" stroke-width="1" stroke-opacity="0.2"/>
+</svg>

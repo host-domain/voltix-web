@@ -1,0 +1,158 @@
+/* ============================================================
+   SETTINGS PAGE + LIGHT THEME — append to global.css
+   ============================================================ */
+
+/* ── Light theme variable overrides ──────────────────────── */
+.theme-light {
+  --bg-base:       #f0f4f8;
+  --bg-surface:    #ffffff;
+  --bg-card:       #f7f9fc;
+  --bg-elevated:   #e8edf2;
+  --border:        #d0dae4;
+  --text-primary:  #0d1b2a;
+  --text-secondary:#4a6080;
+  --text-muted:    #8a9db5;
+  --accent-dim:    rgba(0, 180, 145, 0.1);
+  --accent-glow:   rgba(0, 180, 145, 0.25);
+}
+
+/* body bg needs to follow too */
+.theme-light body,
+.theme-light {
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+
+/* ── Settings page layout ─────────────────────────────────── */
+.settings-page {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  /* max-width: 720px;       */
+}
+
+.settings-page__header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.settings-page__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.settings-page__subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ── Settings list ────────────────────────────────────────── */
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Settings section card ────────────────────────────────── */
+.settings-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.settings-section__header {
+  padding: 16px 20px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.settings-section__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.settings-section__desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.settings-section__body {
+  padding: 16px 20px;
+}
+
+/* ── Option pill group ────────────────────────────────────── */
+.settings-option-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.settings-option {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.settings-option:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.settings-option--active {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Default thresholds grid ──────────────────────────────── */
+.settings-thresholds {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-threshold-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.settings-threshold-row__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .settings-page {
+    padding: 14px;
+    max-width: 100%;
+  }
+
+  .settings-option {
+    font-size: 12px;
+    padding: 7px 14px;
+  }
+}

@@ -1,0 +1,76 @@
+/* ============================================================
+   SKELETON / LOADING STATES — append to global.css
+   ============================================================ */
+
+/* Shimmer keyframe */
+@keyframes skeleton-shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+/* Base skeleton element */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-elevated) 25%,
+    #1f2d3a         50%,
+    var(--bg-elevated) 75%
+  );
+  background-size: 800px 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+/* Skeleton shape variants */
+.skeleton--circle {
+  width:  8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skeleton--icon {
+  width:  20px;
+  height: 20px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.skeleton--text {
+  height: 12px;
+  border-radius: 4px;
+}
+
+.skeleton--badge {
+  width:  56px;
+  height: 22px;
+  border-radius: 6px;
+}
+
+.skeleton--chart {
+  height: 120px;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+/* Skeleton card wrapper — matches .device-card sizing */
+.skeleton-card {
+  pointer-events: none; /* not interactive while loading */
+}
+
+/* Skeleton chart block — mirrors .sensor-chart */
+.skeleton-chart-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skeleton-chart-block__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

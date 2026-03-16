@@ -1,0 +1,56 @@
+import { createContext, useContext, useState, useCallback } from "react";
+import '../styles/toast.css'
+
+const ToastContext = createContext();
+
+let toastId = 0;
+
+export function ToastProvider({ children }) {
+  const [toasts, setToasts] = useState([]);
+
+  const addToast = useCallback(({ message, type = "success", duration = 3000 }) => {
+    const id = ++toastId;
+    setToasts((prev) => [...prev, { id, message, type }]);
+    setTimeout(() => {
+      setToasts((prev) => prev.filter((t) => t.id !== id));
+    }, duration);
+  }, []);
+
+  const removeToast = (id) =>
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+
+  return (
+    <ToastContext.Provider value={{ addToast }}>
+      {children}
+
+      {/* Toast container — rendered here so it's always on top */}
+      <div className="toast-container">
+        {toasts.map((toast) => (
+          <div
+            key={toast.id}
+            className={`toast toast--${toast.type}`}
+            onClick={() => removeToast(toast.id)}
+          >
+            <span className="toast__icon">
+              {toast.type === "success" && "✅"}
+              {toast.type === "error"   && "❌"}
+              {toast.type === "info"    && "ℹ️"}
+              {toast.type === "warning" && "⚠️"}
+            </span>
+            <span className="toast__message">{toast.message}</span>
+            <button
+              className="toast__close"
+              onClick={(e) => { e.stopPropagation(); removeToast(toast.id); }}
+            >
+              ✕
+            </button>
+          </div>
+        ))}
+      </div>
+    </ToastContext.Provider>
+  );
+}
+
+export function useToast() {
+  return useContext(ToastContext);
+}

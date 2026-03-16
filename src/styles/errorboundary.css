@@ -1,0 +1,87 @@
+/* ============================================================
+   ERROR BOUNDARIES — append to global.css
+   ============================================================ */
+
+/* ── Sensor-level error (small, inline) ───────────────────── */
+.sensor-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(255, 71, 87, 0.06);
+  border: 1px solid rgba(255, 71, 87, 0.2);
+  border-radius: 8px;
+  min-height: 48px;
+}
+
+.sensor-error__icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.sensor-error__text {
+  font-size: 12px;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.sensor-error__retry {
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  background: transparent;
+  color: var(--danger);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sensor-error__retry:hover {
+  background: rgba(255, 71, 87, 0.1);
+}
+
+/* ── Card-level error (full card shape) ───────────────────── */
+.card-error {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.card-error__icon {
+  font-size: 32px;
+}
+
+.card-error__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--danger);
+}
+
+.card-error__desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.card-error__retry {
+  margin-top: 6px;
+  padding: 7px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  background: transparent;
+  color: var(--danger);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.card-error__retry:hover {
+  background: rgba(255, 71, 87, 0.1);
+  border-color: var(--danger);
+}
