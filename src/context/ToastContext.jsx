@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useCallback } from "react";
 import '../styles/toast.css'
 
-const ToastContext = createContext();
+export const ToastContext = createContext(); // ← added export
 
 let toastId = 0;
 
@@ -23,7 +23,6 @@ export function ToastProvider({ children }) {
     <ToastContext.Provider value={{ addToast }}>
       {children}
 
-      {/* Toast container — rendered here so it's always on top */}
       <div className="toast-container">
         {toasts.map((toast) => (
           <div

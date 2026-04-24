@@ -4,15 +4,15 @@ import { SettingsContext } from "../context/SettingsContext";
 import { SerialContext }   from "../context/SerialContext";
 
 function useDeviceData(device) {
-  const { addReadings }             = useContext(ReadingsContext);
-  const { settings }                = useContext(SettingsContext);
-  const { latestData, connectionType } = useContext(SerialContext);  
-  const { historyPoints }           = settings;
+  const { addReadings }                        = useContext(ReadingsContext);
+  const { settings }                           = useContext(SettingsContext);
+  const { latestData, connectionType }         = useContext(SerialContext);
+  const { historyPoints }                      = settings;
 
-  const [currentReadings, setCurrentReadings] = useState({});
-  const [history, setHistory]                 = useState({});
-  const [alerts, setAlerts]                   = useState({});
-  const [isLoading, setIsLoading]             = useState(true);
+  const [currentReadings, setCurrentReadings]  = useState({});
+  const [history, setHistory]                  = useState({});
+  const [alerts, setAlerts]                    = useState({});
+  const [isLoading, setIsLoading]              = useState(true);
 
   const checkAlerts = (readings, thresholds) => {
     if (!thresholds) return {};
@@ -64,7 +64,7 @@ function useDeviceData(device) {
       });
       return updated;
     });
-  }, [latestData, isConnected]);
+  }, [latestData, connectionType]); // ← fixed: was isConnected
 
   // ── Re-check alerts when thresholds change ────────────────
   useEffect(() => {
